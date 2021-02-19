@@ -18,6 +18,7 @@
       <el-table-column align="center" label="省" prop="provinces"/>
       <el-table-column align="center" label="市" prop="city"/>
       <el-table-column align="center" label="来源" prop="source"/>
+      <el-table-column align="center" label="车型" prop="carmodel"/>
       <el-table-column align="center" label="PC/手机" prop="stype"/>
       <el-table-column align="center" label="时间" prop="addtime" width='180' />
     </el-table>
@@ -100,8 +101,8 @@ export default {
             item.addtime = formatTime(item.addtime)
           });
          import('@/vendor/Export2Excel').then(excel => {
-          const tHeader = ['姓名', '电话', '性别', '省', '市', '来源', 'PC/手机', '时间']
-          const filterVal = ['fullname', 'phone', 'sex','provinces', 'city', 'source', 'stype', 'addtime']
+          const tHeader = ['姓名', '电话', '性别', '省', '市', '来源', '车型','PC/手机', '时间']
+          const filterVal = ['fullname', 'phone', 'sex','provinces', 'city', 'source', 'carmodel','stype', 'addtime']
           excel.export_json_to_excel2(tHeader, response.data.msg, filterVal, '3d小程序留资信息')
           this.downloadLoading = false
         })
