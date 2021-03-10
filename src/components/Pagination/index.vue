@@ -83,7 +83,7 @@ export default {
 }
 .el-pagination{
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 body .el-pagination .el-pagination__sizes{
   display: none;

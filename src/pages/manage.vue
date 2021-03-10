@@ -1,32 +1,49 @@
 <template>
    <div class="manage_page fillcontain">
-         <el-row style="height: 100%;">
-	  		<el-col :span="4"  style="min-height: 100%; background-color: #324057;">
-                <div class="logo">后台管理</div>
-				<el-menu default-active="qx50"  
-                 text-color="#fff" style="min-height: 100%;" theme="dark" router>
-					<el-menu-item index="qx50"><i class="el-icon-document"></i>QX50 - 移动站点</el-menu-item>
-					<el-menu-item index="qx50l"><i class="el-icon-star-on"></i>Q50L - 车书</el-menu-item>
-          <el-menu-item index="mini3d"><i class="el-icon-edit"></i>留资 - 3D小程序</el-menu-item>
-          <el-menu-item index="miniprogram"><i class="el-icon-setting"></i>全系 - 预约小程序</el-menu-item>
-				</el-menu>
-			</el-col>
-			<el-col :span="20" style="height: 100%;overflow: auto;">
-                <el-header height='64px' >
+          <el-row class='top'>
+            <el-header height='48px' >
+                <div class='logo' >
+                  <img src="../../static/image/logo1.png" alt="" class='logo_icon' >
+                  <p class='logo_text'>西北师范大学附属中学</p>
+                </div>
+                <div class='avatar_box'>
+                    <i class="el-icon-search" style="width:22px;height:22px;" ></i>
+                    <i class='el-icon-question'></i>
+                    <i class='el-icon-bell'></i>
                     <el-dropdown  @command="handleCommand" menu-align='start'>
                         <img src="../../static/image/avatar.png" class="avatar">
+                        <p class='name'>用户名</p>
                         <el-dropdown-menu slot="dropdown">
                             <el-dropdown-item command="signout">退出</el-dropdown-item>
                         </el-dropdown-menu>
                     </el-dropdown>
-                </el-header>
-                <div class='main'>
-                    <keep-alive>
-                        <router-view></router-view>
-                    </keep-alive>
                 </div>
-			</el-col>
-		</el-row>
+            </el-header>
+            <el-menu default-active="collect"  theme="dark" router mode="horizontal" >
+              <!-- <el-menu-item index="qx50">QX50 - 移动站点</el-menu-item> -->
+              <!-- <el-menu-item index="qx50l">Q50L - 车书</el-menu-item>
+              <el-menu-item index="mini3d">留资 - 3D小程序</el-menu-item>
+              <el-menu-item index="miniprogram">全系 - 预约小程序</el-menu-item> -->
+              <el-menu-item index="collect">采集管理</el-menu-item>
+              <el-menu-item index="compare">评比管理</el-menu-item>
+              <el-menu-item index="">评价管理</el-menu-item>
+              <el-menu-item index="schoolYear">学年管理</el-menu-item>
+              <el-menu-item index="grade">年级管理</el-menu-item>
+              <el-menu-item index="object">科目管理</el-menu-item>
+              <el-menu-item index="class">班级管理</el-menu-item>
+              <el-menu-item index="user">用户管理</el-menu-item>
+              <el-menu-item index="role">角色管理</el-menu-item>
+              <el-menu-item index="author">授权管理</el-menu-item>
+              <el-menu-item index="account">账号管理</el-menu-item>
+              <el-menu-item index="dictionary">字典管理</el-menu-item>
+              <el-menu-item index="regulation">规则配置</el-menu-item>
+            </el-menu>
+          </el-row>
+          <el-row class='main'>
+            <keep-alive>
+                <router-view></router-view>
+            </keep-alive>
+          </el-row>
    </div>
 </template>
 <script>
@@ -55,83 +72,104 @@ export default {
 }
 </script>
 <style>
-    .el-menu-item.is-active{
-      color:#fff;
-      background:#409EFF;
+    .el-menu--horizontal .el-menu-item:not(.is-disabled):focus, .el-menu--horizontal .el-menu-item:not(.is-disabled):hover{
+      color:#409EFF;
     }
-    .logo{
-        height:60px;
-        color:#fff;
-        text-align: left;
-        line-height: 60px;
-        font-size:24px;
-        padding-left:20px;
+    body .el-menu--horizontal>.el-menu-item.is-active{
+      color:#409EFF;
     }
-    .main{
-        margin:30px;
-        margin-bottom:0;
-        padding:30px;
-        padding-bottom:0;
+    .el-menu--horizontal>.el-menu-item{
+      height:48px;
+      line-height: 48px;
+    }
+    .el-header{
+        padding:0 20px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         background:#fff;
     }
-    .manage_page{
-        height: 100%;
-    }
-    .el-menu{
-      background-color:rgb(50, 64, 87) ;
-    }
-    .el-menu-item:focus, .el-menu-item:hover{
-      background-color:#409EFF;
-    }
-    .el-menu-item i{
-        color:#fff;
-    }
-  .el-header, .el-footer {
-    background-color: #fff;
-    color: #333;
-    line-height: 64px;
-  }
-  
-  .el-aside {
-    background-color: #D3DCE6;
-    color: #333;
-    text-align: center;
-    line-height: 200px;
-  }
-  
-  .el-main {
-    background-color: #E9EEF3;
-    color: #333;
-    text-align: center;
-    line-height: 160px;
-  }
-  
-  body > .el-container {
-    margin-bottom: 40px;
-  }
-  
-  .el-container:nth-child(5) .el-aside,
-  .el-container:nth-child(6) .el-aside {
-    line-height: 260px;
-  }
-  
-  .el-container:nth-child(7) .el-aside {
-    line-height: 320px;
-  }
-    .el-header{
+    .el-dropdown{
+        height:32px;
         display: flex;
-        justify-content: flex-end;
-        padding-right:60px;
         align-items: center;
     }
-    .el-dropdown{
-        height:42px;
-    }
     .avatar{
-        width:42px;
-        height:42px;
+        width:32px;
+        height:32px;
+        margin-left:30px;
     }
-	.el-dropdown-menu__item{
+	  .el-dropdown-menu__item{
         text-align: center;
     }
+    .logo_icon{
+      width:26px;
+      height:26px;
+      margin-right:10px;
+    }
+    .logo{
+      display: flex;
+      align-items:center;
+      justify-content: center;
+    }
+    .logo_text{
+      font-size:16px;
+      color:#262626;
+    }
+    .avatar_box{
+      color:#A6A6A6;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+    .avatar_box i{
+      font-size:20px;
+      margin:0 10px;
+    }
+    .name{
+      color:#A6A6A6;
+      margin-left:10px;
+    }
+    .top{
+      margin-bottom:30px;
+    }
+    .main{
+      background:#fff;
+      width:90%;
+      margin:0 auto;
+      height:80%;
+      overflow: auto;
+    }
+
+.el-tabs--left .el-tabs__header.is-left, .el-tabs--left .el-tabs__header.is-right, .el-tabs--left .el-tabs__nav-scroll, .el-tabs--left .el-tabs__nav-wrap.is-left, .el-tabs--left .el-tabs__nav-wrap.is-right, .el-tabs--right .el-tabs__header.is-left, .el-tabs--right .el-tabs__header.is-right, .el-tabs--right .el-tabs__nav-scroll, .el-tabs--right .el-tabs__nav-wrap.is-left, .el-tabs--right .el-tabs__nav-wrap.is-right{
+  width:100%;
+}
+.el-tabs--left .el-tabs__item.is-left{
+    text-align: center;
+}
+.el-tabs__nav-scroll{
+  padding-top:30px;
+}
+.el-tabs__item{
+    width:100%;
+    color:#A6A6A6;
+    height:50px;
+    line-height:50px;
+}
+.el-table thead{
+  background-color:#FAFAFA;
+}
+.el-table thead tr,.el-table thead th{
+  background-color:#FAFAFA;
+}
+.inner{
+    padding:20px 0;
+}
+.el-col-4{
+    height:100%;
+}
+.el-tabs--left, .el-tabs--right{
+    height:100%;
+}
 </style>
