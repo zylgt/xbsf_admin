@@ -66,7 +66,7 @@
 									type: 'success',
 									message: '登录成功'
 								});
-								this.$router.push('/qx50')
+								this.$router.push('/collect')
 								setToken(response.data.msg.token)
 								if(this.checked){
 									Cookies.set('username', this.loginForm.username)

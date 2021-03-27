@@ -114,7 +114,7 @@ export default {
             object:'',
             name:''
         },
-         options:[{value:1,label:'2019-2020期末教师评比'},{value:2,label:'2020-2021期末教师评比'},
+        options:[{value:1,label:'2019-2020期末教师评比'},{value:2,label:'2020-2021期末教师评比'},
         {value:3,label:'2019-2021期末教师评比'}],
         list:[{account:1109092,name:'赵宇',school:'七年级',class:'1班',object:'语文'},
         {account:1109092,name:'赵宇',school:'七年级',class:'1班',object:'语文'},
