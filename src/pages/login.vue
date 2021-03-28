@@ -124,6 +124,7 @@
 	}
 	.logo_name{
 		font-size:36px;
+		font-weight: 600;
 	}
 	.account{
 		font-size:16px;
