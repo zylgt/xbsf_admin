@@ -1,7 +1,11 @@
 <template>
   	<div class="login_page fillcontain">
+		  	<div class='web_info'>
+				  <img src="../../static/image/logo.jpeg" alt="" class='login_logo'>
+				  <p class='logo_name'>北京市海淀北部新区实验学校</p>
+			</div>
 	  		<div class="form_contianer" v-show="showLogin">
-		  		<img src="https://cnbj2.fds.api.xiaomi.com/webfiles/file-img1562261591946091.jpg" alt="">
+				<span class='account'>账户登录</span>
 				<div class='formBox'>
 					<el-form :model="loginForm" :rules="rules" ref="loginForm">
 					<el-form-item prop="username">
@@ -18,12 +22,15 @@
 				  	</el-form-item>
 				</el-form>
 				</div>
-		    	
 	  		</div>
+			<div class='web_cop' >
+				<p class='cop_label1'>Anonymous evaluation</p>
+				<p class='cop_label2'>Copyright@2020 匿名评价工作室出品</p>
+			</div>
   	</div>
 </template>
 
-<script>
+<script> 
   import {login} from '@/api/api'
   import {  setToken } from '@/utils/auth'
   import Cookies from 'js-cookie'
@@ -102,20 +109,44 @@
 </script>
 
 <style scoped>
+	.web_info{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-bottom:100px;
+		padding-top:110px;
+	}
+	.login_logo{
+		width:80px;
+		height:80px;
+		border-radius:50%;
+		margin-right:20px;
+	}
+	.logo_name{
+		font-size:36px;
+	}
+	.account{
+		font-size:16px;
+		color:#1890FF;
+		padding-bottom:8px;
+		border-bottom:2px solid #1890FF;
+		display: inline-block;
+		margin-bottom:66px;
+	}
 	.el-form{
-		width:70%;
+		width:100%;
 	}
 	.formBox{
 		width:100%;
-		height:100%;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 	}
 	.login_page{
-		background-color: #324057;
+		background-color: #F0F3F7;
 		display: flex;
-		justify-content: center;
+		flex-direction: column;
+		justify-content: space-between;
 		align-items: center;
 	}
 	.manage_tip{
@@ -130,11 +161,7 @@
 			color: #fff;
     }
     .form_contianer{
-		width:1000px;
-     	display: flex;
-		align-items: center;
-		justify-content: space-between;
-		background-color: #fff;
+		width:368px;
     }
   .form_contianer .wh,.form_contianer .ctp{
     width:320px;
@@ -158,5 +185,17 @@
 	.form-fade-enter, .form-fade-leave-active {
 	  	transform: translate3d(0, -50px, 0);
 	  	opacity: 0;
+	}
+	.web_cop{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		color:rgba(0,0,0,0.45);
+		font-size:14px;
+		margin-bottom:25px;
+	}
+	.cop_label1{
+		margin-bottom:10px;
 	}
 </style>

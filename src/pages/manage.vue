@@ -3,8 +3,8 @@
           <el-row class='top'>
             <el-header height='48px' >
                 <div class='logo' >
-                  <img src="../../static/image/logo1.png" alt="" class='logo_icon' >
-                  <p class='logo_text'>西北师范大学附属中学</p>
+                  <img src="../../static/image/logo.jpeg" alt="" class='logo_icon' >
+                  <p class='logo_text'>北京市海淀北部新区实验学校</p>
                 </div>
                 <div class='avatar_box'>
                     <i class="el-icon-search" style="width:22px;height:22px;" ></i>
