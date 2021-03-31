@@ -61,7 +61,8 @@
 <script>
 import Pagination from '@/components/Pagination' 
 export default {
-  name: '',
+  name: '', 
+  inject:['reload'],   
   data () {
     return {
         listLoading:false,
@@ -77,7 +78,8 @@ export default {
   components: { Pagination },
   computed: {},
   beforeMount () {},
-  mounted () {},
+  mounted () {
+  },
   methods: {
       delName(scope,index){
           this.list.splice(index,1)

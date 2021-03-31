@@ -20,23 +20,7 @@
                 </div>
             </el-header>
             <el-menu default-active="collect"  theme="dark" router mode="horizontal" >
-              <!-- <el-menu-item index="qx50">QX50 - 移动站点</el-menu-item> -->
-              <!-- <el-menu-item index="qx50l">Q50L - 车书</el-menu-item>
-              <el-menu-item index="mini3d">留资 - 3D小程序</el-menu-item>
-              <el-menu-item index="miniprogram">全系 - 预约小程序</el-menu-item> -->
-              <el-menu-item index="collect">采集管理</el-menu-item>
-              <el-menu-item index="compare">评比管理</el-menu-item>
-              <el-menu-item index="">评价管理</el-menu-item>
-              <el-menu-item index="schoolYear">学年管理</el-menu-item>
-              <el-menu-item index="grade">年级管理</el-menu-item>
-              <el-menu-item index="object">科目管理</el-menu-item>
-              <el-menu-item index="class">班级管理</el-menu-item>
-              <el-menu-item index="user">用户管理</el-menu-item>
-              <el-menu-item index="role">角色管理</el-menu-item>
-              <el-menu-item index="author">授权管理</el-menu-item>
-              <el-menu-item index="account">账号管理</el-menu-item>
-              <el-menu-item index="dictionary">字典管理</el-menu-item>
-              <el-menu-item index="regulation">规则配置</el-menu-item>
+              <el-menu-item :index="item.routers" v-if='item.active' v-for='(item,index) in routerList' :key='index' >{{item.name}}</el-menu-item>
             </el-menu>
           </el-row>
           <el-row class='main'>
@@ -51,13 +35,29 @@ import {  removeToken } from '@/utils/auth'
 export default {
   name: '',
   data () {
-    return {}
+    return {
+      routerList:[{name:'采集管理',active:true,routers:'collect'},
+      {name:'评比管理',active:false,routers:'compare'},
+      {name:'评价管理',active:true,routers:''},
+      {name:'学年管理',active:true,routers:'schoolYear'},
+      {name:'年级管理',active:false,routers:'grade'},
+      {name:'科目管理',active:true,routers:'object'},
+      {name:'班级管理',active:true,routers:'class'},
+      {name:'用户管理',active:true,routers:'user'},
+      {name:'角色管理',active:true,routers:'role'},
+      {name:'授权管理',active:true,routers:'author'},
+      {name:'账号管理',active:true,routers:'account'},
+      {name:'字典管理',active:true,routers:'dictionary'},
+      {name:'规则配置',active:true,routers:'regulation'}]
+    }
   },
   components: {},
   computed: {
   },
   beforeMount () {},
-  mounted () {},
+  mounted () {
+    
+  },
   methods: {
     handleCommand(){
       removeToken()
